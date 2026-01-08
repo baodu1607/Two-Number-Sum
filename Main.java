@@ -32,11 +32,11 @@ public class Main {
 
     public static int[] twoNumberSum2(int[] array, int targetSum) {
         HashSet<Integer> traversedElem = new HashSet<>();
-        for (int i = 0; i < array.length; i++) {
-            if(traversedElem.contains(targetSum - array[i])){
-                return new int[]{array[i], targetSum - array[i]};
-            }else{
-                traversedElem.add(array[i]);
+        for (int j : array) {
+            if (traversedElem.contains(targetSum - j)) {
+                return new int[]{j, targetSum - j};
+            } else {
+                traversedElem.add(j);
             }
         }
         return new int[0];
