@@ -19,8 +19,9 @@ public class Main {
     you can't add a single integer to itself in order to obtain the target sum.
     You can assume that there will be at most one pair of numbers summing up to the target sum.*/
 
+    //O(n^2) time / O(1) space
     public static int[] twoNumberSum(int[] array, int targetSum) {
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length-1; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] + array[j] == targetSum) {
                     return new int[]{array[i], array[j]};
@@ -30,6 +31,7 @@ public class Main {
         return new int[0];
     }
 
+    // O(n)
     public static int[] twoNumberSum2(int[] array, int targetSum) {
         HashSet<Integer> traversedElem = new HashSet<>();
         for (int j : array) {
@@ -39,6 +41,12 @@ public class Main {
                 traversedElem.add(j);
             }
         }
+        return new int[0];
+    }
+
+    //O(nlogn), O(1) space
+    public static int[] twoNumberSum3(int[] array, int targetSum) {
+
         return new int[0];
     }
 }
