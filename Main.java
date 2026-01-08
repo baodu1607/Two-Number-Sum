@@ -1,11 +1,13 @@
+import java.util.HashSet;
+
 public class Main {
     public static void main(String[] args) {
-        int[] array = twoNumberSum(new int[]{2, 7, 11, 15}, 9);
+        int[] array = twoNumberSum(new int[]{3, 5, -4, 8, 11, 1, -1, 6}, 10);
         if (array.length == 0) {
-            System.out.println("No two numbers found");
+            System.out.println("No two numbers found.");
         }else{
-            for (int i = 0; i < array.length; i++) {
-                System.out.println(array[i]);
+            for (int j : array) {
+                System.out.println(j);
             }
         }
     }
@@ -23,6 +25,16 @@ public class Main {
                 if (array[i] + array[j] == targetSum) {
                     return new int[]{array[i], array[j]};
                 }
+            }
+        }
+        return new int[0];
+    }
+
+    public static int[] twoNumberSum2(int[] array, int targetSum) {
+        HashSet<Integer> traversedElem = new HashSet<>();
+        for (int i = 0; i < array.length; i++) {
+            if(traversedElem.contains(targetSum - array[i])){
+                return new int[]{array[i], targetSum - array[i]};
             }
         }
         return new int[0];
