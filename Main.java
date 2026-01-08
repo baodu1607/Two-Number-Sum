@@ -2,7 +2,7 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = twoNumberSum(new int[]{3, 5, -4, 8, 11, 1, -1, 6}, 10);
+        int[] array = twoNumberSum2(new int[]{3, 5, -4, 8, 11, 1, -1, 6}, 10);
         if (array.length == 0) {
             System.out.println("No two numbers found.");
         }else{
@@ -35,6 +35,8 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             if(traversedElem.contains(targetSum - array[i])){
                 return new int[]{array[i], targetSum - array[i]};
+            }else{
+                traversedElem.add(array[i]);
             }
         }
         return new int[0];
